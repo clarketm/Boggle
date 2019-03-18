@@ -1,6 +1,6 @@
 import request from "../../utils/request";
 
-class Game {
+export class Boggle {
   static VOWELS = "aeiou";
   static CONSONANTS = "bcdfghjklmnpqrstvwxyz";
 
@@ -17,7 +17,7 @@ class Game {
   }
 
   static randomChoice(collection) {
-    const choice = Game.randomIntExclusive(0, collection.length);
+    const choice = Boggle.randomIntExclusive(0, collection.length);
     return collection[choice];
   }
 
@@ -29,18 +29,18 @@ class Game {
     const N = collection.length;
 
     for (let i = 0; i < N * rounds; i++) {
-      const j = Game.randomIntExclusive(0, N);
-      Game.swap(collection, i % N, j);
+      const j = Boggle.randomIntExclusive(0, N);
+      Boggle.swap(collection, i % N, j);
     }
   }
 
   constructor(build) {
     this.validWords = new Set();
     this.invalidWords = new Set();
-    this.boardSize = build.boardSize || Game.DEFAULT_BOARD_SIZE;
-    this.minWordSize = build.minWordSize || Game.DEFAULT_MINIMUM_WORD_SIZE;
-    this.minConsonantCount = build.minConsonantCount || Game.DEFAULT_MINIMUM_CONSONANT_COUNT;
-    this.minVowelCount = build.minVowelCount || Game.DEFAULT_MINIMUM_VOWEL_COUNT;
+    this.boardSize = build.boardSize || Boggle.DEFAULT_BOARD_SIZE;
+    this.minWordSize = build.minWordSize || Boggle.DEFAULT_MINIMUM_WORD_SIZE;
+    this.minConsonantCount = build.minConsonantCount || Boggle.DEFAULT_MINIMUM_CONSONANT_COUNT;
+    this.minVowelCount = build.minVowelCount || Boggle.DEFAULT_MINIMUM_VOWEL_COUNT;
     this.populateBoard();
   }
 
@@ -56,20 +56,20 @@ class Game {
 
     // Generate required vowel quantity
     for (let i = 0; i < this.minVowelCount; i++) {
-      chars.push(Game.randomChoice(Game.VOWELS));
+      chars.push(Boggle.randomChoice(Boggle.VOWELS));
     }
 
     // Generate required consonant quantity
     for (let i = 0; i < this.minConsonantCount; i++) {
-      chars.push(Game.randomChoice(Game.CONSONANTS));
+      chars.push(Boggle.randomChoice(Boggle.CONSONANTS));
     }
 
     // Generate remaining vowel/consonant quantity
     while (chars.length < N * N) {
-      chars.push(Game.randomChoice(Game.VOWELS + Game.CONSONANTS));
+      chars.push(Boggle.randomChoice(Boggle.VOWELS + Boggle.CONSONANTS));
     }
 
-    Game.shuffle(chars);
+    Boggle.shuffle(chars);
 
     for (let r = 0; r < N; r++) {
       for (let c = 0; c < N; c++) {
@@ -111,7 +111,7 @@ class Game {
   }
 }
 
-export class GameBuilder {
+export class BoggleBuiler {
   withWordSize({ wordSize }) {
     this.minWordSize = wordSize;
     return this;
@@ -128,6 +128,6 @@ export class GameBuilder {
   }
 
   build() {
-    return new Game(this);
+    return new Boggle(this);
   }
 }

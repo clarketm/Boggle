@@ -1,16 +1,15 @@
 import React, { Component } from "react";
-import { GameBuilder } from "./GameBuilder";
-import GameBoard from "./GameBoard";
+import { BoggleBuiler } from "./Boggle";
 import style from "../../style";
-import GameCharacter from "./GameCharacter";
+import BoggleCharacter from "./BoggleCharacter";
 import Grid from "../Grid/Grid";
 import Button from "../Button/Button";
 import List from "../List/List";
 import Text from "../Text/Text";
 import Footer from "../Footer/Footer";
-import Header from "../../Header/Header";
+import Header from "../Header/Header";
 
-class GameLayout extends Component {
+class BoggleLayout extends Component {
   static formatAccuracy(accuracy) {
     return `${accuracy.toFixed(2)}%`;
   }
@@ -20,11 +19,11 @@ class GameLayout extends Component {
       score: 0,
       accuracy: 0,
       word: [],
-      Game: new GameBuilder().build()
+      Game: new BoggleBuiler().build()
     };
   }
 
-  state = GameLayout.initialGameState;
+  state = BoggleLayout.initialGameState;
 
   get word() {
     return this.state.word.map(([r, c]) => this.state.Game.board[r][c]).join("");
@@ -35,7 +34,7 @@ class GameLayout extends Component {
     const invalid = this.state.Game.invalidWords.size;
     const total = valid + invalid || 1;
 
-    return GameLayout.formatAccuracy((valid / total) * 100);
+    return BoggleLayout.formatAccuracy((valid / total) * 100);
   }
 
   renderBoard() {
@@ -49,7 +48,7 @@ class GameLayout extends Component {
     for (let r = 0; r < N; r++) {
       for (let c = 0; c < N; c++) {
         chars.push(
-          <GameCharacter
+          <BoggleCharacter
             key={String(r) + String(c)}
             handleClick={this.toggleSelected}
             char={board[r][c]}
@@ -70,7 +69,7 @@ class GameLayout extends Component {
   // Event Handlers
   ////////////////////////
   handleStart = () => {
-    this.setState(GameLayout.initialGameState);
+    this.setState(BoggleLayout.initialGameState);
   };
 
   handleInvalidSelection = () => {
@@ -153,7 +152,7 @@ class GameLayout extends Component {
         <Button text="New Game" style={style.RestartButton} handleClick={this.handleStart} />
 
         {/*MIDDLE*/}
-        <GameBoard style={style.GameBoard(Game.boardSize)}>{this.renderBoard()}</GameBoard>
+        <Grid style={style.GameBoard(Game.boardSize)}>{this.renderBoard()}</Grid>
 
         <List title="Valid Words" style={style.ValidWordList} list={Game.validWords} />
         <List title="Invalid Words" style={style.InvalidWordList} list={Game.invalidWords} />
@@ -169,4 +168,4 @@ class GameLayout extends Component {
   }
 }
 
-export default GameLayout;
+export default BoggleLayout;

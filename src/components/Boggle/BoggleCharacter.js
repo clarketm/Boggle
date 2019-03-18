@@ -1,6 +1,6 @@
 import React from "react";
 
-const GameCharacter = ({ char, row, col, isSelected, isLast, handleClick, style }) => {
+const BoggleCharacter = ({ char, row, col, isSelected, isLast, handleClick, style }) => {
   style = {
     borderColor: isLast ? "yellow" : isSelected ? "blue" : "black",
     opacity: isSelected ? "0.60" : "1.0",
@@ -14,4 +14,4 @@ const GameCharacter = ({ char, row, col, isSelected, isLast, handleClick, style 
   );
 };
 
-export default GameCharacter;
+export default BoggleCharacter;

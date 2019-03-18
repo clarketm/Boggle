@@ -1,15 +1,19 @@
+const background = "/background.png";
+
 const style = {
   Grid: {
     display: "grid",
     gridTemplateAreas:
       '"header header header start" "word word accuracy accuracy" "board board valid invalid" "submit clear empty empty" "footer footer footer footer"',
     gridTemplateRows: "0.5fr 1fr 5fr 1fr 0.5fr",
-    gridTemplateColumns: "1fr 1fr 0.5fr 0.5fr",
+    gridTemplateColumns: "1.75fr 1.75fr 1fr 1fr",
     gridRowGap: "1rem",
-    gridColumnGap: "2rem",
-    padding: "1rem 2rem 1rem",
+    gridColumnGap: "3rem",
+    background: `url(${background}) repeat`,
+    padding: "1rem 4rem 1rem",
     alignItems: "center",
     justifyItems: "center",
+    width: "100%",
     height: "100%"
   },
   Word: {
@@ -29,13 +33,13 @@ const style = {
   },
   SubmitWordButton: {
     gridArea: "submit",
-    // alignSelf: "flex-start",
+    alignSelf: "flex-start",
     justifySelf: "flex-end",
     margin: "1rem"
   },
   ClearWordButton: {
     gridArea: "clear",
-    // alignSelf: "flex-start",
+    alignSelf: "flex-start",
     justifySelf: "flex-start",
     margin: "1rem"
   },

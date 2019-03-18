@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "react-dom";
-import App from "./components/App/App";
 import "./index.css";
+import BoggleLayout from "./components/Boggle/BoggleLayout";
 
-render(<App />, document.getElementById("root"));
+render(<BoggleLayout />, document.getElementById("root"));
