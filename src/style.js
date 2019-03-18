@@ -13,7 +13,6 @@ const style = {
     padding: "1rem 4rem 1rem",
     alignItems: "center",
     justifyItems: "center",
-    width: "100%",
     height: "100%"
   },
   Word: {
