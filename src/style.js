@@ -61,8 +61,8 @@ const style = {
   GameBoard: N => ({
     display: "grid",
     gridArea: "board",
-    gridTemplateRows: `repeat(${N}, 1fr)`,
-    gridTemplateColumns: `repeat(${N}, 1fr)`,
+    gridTemplateRows: `repeat(${N}, auto)`,
+    gridTemplateColumns: `repeat(${N}, auto)`,
     gridRowGap: "2rem",
     gridColumnGap: "2rem",
     justifyItems: "center",
