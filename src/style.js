@@ -3,13 +3,14 @@ const style = {
     display: "grid",
     gridTemplateAreas:
       '"header header header start" "word word accuracy accuracy" "board board valid invalid" "submit clear empty empty" "footer footer footer footer"',
-    gridTemplateRows: "0.25fr 1fr 5fr 0.1fr 0.25fr",
+    gridTemplateRows: "0.5fr 1fr 5fr 1fr 0.5fr",
     gridTemplateColumns: "1fr 1fr 0.5fr 0.5fr",
     gridRowGap: "1rem",
     gridColumnGap: "2rem",
     padding: "1rem 2rem 1rem",
     alignItems: "center",
-    justifyItems: "center"
+    justifyItems: "center",
+    height: "100%"
   },
   Word: {
     gridArea: "word",
@@ -44,7 +45,8 @@ const style = {
     padding: "0.5rem",
     width: "100%",
     height: "100%",
-    backgroundColor: "rgba(0, 255, 0, 0.1)"
+    backgroundColor: "rgba(0, 255, 0, 0.1)",
+    border: "0.1rem solid rgba(0, 255, 0, 0.3)"
   },
   InvalidWordList: {
     gridArea: "invalid",
@@ -52,7 +54,8 @@ const style = {
     padding: "0.5rem",
     width: "100%",
     height: "100%",
-    backgroundColor: "rgba(255, 0, 0, 0.1)"
+    backgroundColor: "rgba(255, 0, 0, 0.1)",
+    border: "0.1rem solid rgba(255, 0, 0, 0.3)"
   },
   GameBoard: N => ({
     display: "grid",

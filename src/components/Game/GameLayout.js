@@ -156,7 +156,7 @@ class GameLayout extends Component {
         <GameBoard style={style.GameBoard(Game.boardSize)}>{this.renderBoard()}</GameBoard>
 
         <List title="Valid Words" style={style.ValidWordList} list={Game.validWords} />
-        <List title="Inalid Words" style={style.InvalidWordList} list={Game.invalidWords} />
+        <List title="Invalid Words" style={style.InvalidWordList} list={Game.invalidWords} />
 
         {/*BOTTOM*/}
         <Button text="Submit Word" disabled={!this.state.word.length} style={style.SubmitWordButton} handleClick={this.handleSubmitWord} />
