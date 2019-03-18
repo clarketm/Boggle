@@ -35,7 +35,7 @@ class Game {
   }
 
   constructor(build) {
-    this.validWords = new Set(["hair"]);
+    this.validWords = new Set();
     this.invalidWords = new Set();
     this.boardSize = build.boardSize || Game.DEFAULT_BOARD_SIZE;
     this.minWordSize = build.minWordSize || Game.DEFAULT_MINIMUM_WORD_SIZE;
