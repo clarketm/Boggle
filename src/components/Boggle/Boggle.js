@@ -1,4 +1,5 @@
 import request from "../../utils/request";
+import { Header } from "../../utils/constants";
 
 export class Boggle {
   static VOWELS = "aeiou";
@@ -88,6 +89,9 @@ export class Boggle {
 
     const { valid } = await request("https://us-central1-hazel-analytics.cloudfunctions.net/boggle-dictionary", {
       method: "POST",
+      headers: {
+        [Header.CONTENT_TYPE]: "application/json"
+      },
       body: JSON.stringify({ word })
     });
 
