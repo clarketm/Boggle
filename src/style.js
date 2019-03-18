@@ -8,7 +8,7 @@ const style = {
     gridTemplateRows: "auto minmax(auto, 10%) auto auto auto",
     gridTemplateColumns: "auto auto minmax(auto, 15%) minmax(auto, 15%)",
     gridRowGap: "1rem",
-    gridColumnGap: "3rem",
+    gridColumnGap: "2rem",
     background: `url(${background}) repeat`,
     padding: "1rem 4rem 1rem",
     alignItems: "center",
@@ -63,8 +63,8 @@ const style = {
     gridArea: "board",
     gridTemplateRows: `repeat(${N}, auto)`,
     gridTemplateColumns: `repeat(${N}, auto)`,
-    gridRowGap: "2rem",
-    gridColumnGap: "2rem",
+    gridRowGap: "0.4rem",
+    gridColumnGap: "0.4rem",
     justifyItems: "center",
     alignItems: "center",
     cursor: "pointer"
@@ -81,10 +81,10 @@ const style = {
     borderSize: "0.5rem",
     boxShadow: "0.2rem 0.2rem 0.2rem #888888",
     textAlign: "center",
-    lineHeight: "2rem",
-    width: "2rem",
-    height: "2rem",
-    padding: "2rem"
+    lineHeight: "1.5rem",
+    width: "1.5rem",
+    height: "1.5rem",
+    padding: "1.5rem"
   },
   Header: {
     gridArea: "header",
